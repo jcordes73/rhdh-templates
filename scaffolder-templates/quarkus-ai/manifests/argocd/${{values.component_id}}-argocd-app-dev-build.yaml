@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: ${{values.user}}-${{ values.component_id }}-dev-build
-  namespace: {{ argocd_namespace | default('janus-argocd') }}
+  namespace: janus-argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:

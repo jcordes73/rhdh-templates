@@ -221,7 +221,7 @@ spec:
       input:
         appName: ${{ user.entity.metadata.name }}-${{ parameters.component_id }}-bootstrap
         argoInstance: main
-        namespace: {{ argocd_namespace | default('janus-argocd') }}
+        namespace: janus-argocd
         repoUrl: 'https://${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
         path: 'argocd/'
 
