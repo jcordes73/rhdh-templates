@@ -19,7 +19,7 @@ spec:
           title: OpenShift Clusters
           type: string
           enum:
-            - {{ openshift_apps_domain }}
+            - apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
 
   steps:
     - id: templateSource

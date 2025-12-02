@@ -26,7 +26,7 @@ spec:
     - description: Newest image tag
       name: image-tag
       type: string
-    - default: argocd-server-janus-argocd.{{ openshift_apps_domain }}
+    - default: argocd-server-janus-argocd.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
       description: ArgoCD host
       name: argocd-host
       type: string

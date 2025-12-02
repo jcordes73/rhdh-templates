@@ -24,21 +24,21 @@ spec:
           title: OpenShift Clusters
           type: string
           enum:
-            - 	{{ openshift_apps_domain }}
+            - 	apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
       dependencies:
         openshiftCluster:
           oneOf:
             - properties:
                 openshiftCluster:
                   enum:
-                    - {{ openshift_apps_domain }}
+                    - apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
                 image_host:
                   title: Image Host
                   type: string
                   description: Host for storing image
                   enum: 
-                    - quay.{{ openshift_apps_domain }}
-                  default: quay.{{ openshift_apps_domain }}
+                    - quay.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
+                  default: quay.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
                 image_organization:
                   title: Organization
                   type: string

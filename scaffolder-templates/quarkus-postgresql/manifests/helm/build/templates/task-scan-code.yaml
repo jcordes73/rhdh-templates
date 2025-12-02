@@ -7,7 +7,7 @@ spec:
   - default: docker.io/sonarsource/sonar-scanner-cli:11
     name: scanImage
     type: string
-  - default: https://sonarqube-sonarqube.{{ openshift_apps_domain }}/
+  - default: https://sonarqube-sonarqube.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com/
     name: sonarqubeHostUrl
     type: string
   - default: object-detection-rest
