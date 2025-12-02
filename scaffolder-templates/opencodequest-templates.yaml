@@ -6,7 +6,7 @@ metadata:
 spec:
   type: url
   targets:
-    - https://gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/fight-ui/template.yaml
-    - https://gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-postgresql/template.yaml
-    - https://gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-with-spring-postgresql/template.yaml
-    - https://gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-ai/template.yaml
+    - https://gitea-gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/fight-ui/template.yaml
+    - https://gitea-gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-postgresql/template.yaml
+    - https://gitea-gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-with-spring-postgresql/template.yaml
+    - https://gitea-gitea.{{ openshift_apps_domain }}/opencode-quest/rhdh-templates/blob/main/scaffolder-templates/quarkus-ai/template.yaml

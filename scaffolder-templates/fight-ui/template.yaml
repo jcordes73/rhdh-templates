@@ -29,7 +29,7 @@ spec:
         url: ./skeleton
         targetPath: ./source
         values:
-          git_host: gitea.${{ parameters.openshiftCluster }}
+          git_host: gitea-gitea.${{ parameters.openshiftCluster }}
           giteaGroup: ${{ user.entity.metadata.name }}
           repoName: fight-ui
           owner: ${{ user.entity.metadata.name }}
@@ -38,7 +38,7 @@ spec:
           component_id: fight-ui
           system: ${{ user.entity.metadata.name }}-workshop
           user: ${{ user.entity.metadata.name }}
-          host: gitea.${{ parameters.openshiftCluster }}
+          host: gitea-gitea.${{ parameters.openshiftCluster }}
           destination: '${{ user.entity.metadata.name }}/fight-ui'
 
     - id: publishSource
@@ -46,7 +46,7 @@ spec:
       action: publish:gitea
       input:
         sourcePath: ./source
-        repoUrl: gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui
+        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui
         defaultBranch: main
         repoVisibility: public
 
@@ -64,11 +64,11 @@ spec:
         url: ./manifests
         copyWithoutTemplating: []
         values:
-          git_host: gitea.${{ parameters.openshiftCluster }}
+          git_host: gitea-gitea.${{ parameters.openshiftCluster }}
           component_id: fight-ui
           description: "fight-ui sources"
-          destination: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
-          source_repository: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui.git
+          destination: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
+          source_repository: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui.git
           repository_name: fight-ui
           git_owner: ${{ user.entity.metadata.name }}
           cluster: .${{ parameters.openshiftCluster }}
@@ -83,7 +83,7 @@ spec:
       name: Publishing to Deployment Resource Repository
       action: publish:gitea
       input:
-        repoUrl: gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui-gitops
+        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui-gitops
         sourcePath: ./tenant-gitops
         defaultBranch: main
         repoVisibility: public
@@ -95,7 +95,7 @@ spec:
         appName: ${{ user.entity.metadata.name }}-fight-ui-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
+        repoUrl: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
         path: 'argocd/'
 
   output:

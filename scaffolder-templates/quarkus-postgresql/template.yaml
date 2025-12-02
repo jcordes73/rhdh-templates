@@ -111,7 +111,7 @@ spec:
           java_package_name_dir: ${{ parameters.java_package_name | replace(".","/") }}
           owner: ${{ user.entity.metadata.name }}
           cluster: .${{ parameters.openshiftCluster }}
-          host: gitea.${{ parameters.openshiftCluster }}
+          host: gitea-gitea.${{ parameters.openshiftCluster }}
           destination: '${{ user.entity.metadata.name }}/${{ parameters.component_id }}'
           quay_destination: ${{ parameters.image_organization}}/${{ user.entity.metadata.name }}-${{ parameters.component_id }}
           port: 8080
@@ -124,7 +124,7 @@ spec:
       name: Publish
       action: publish:gitea
       input:
-        repoUrl: "gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
         repoVisibility: public
 
     - id: register
@@ -143,8 +143,8 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          destination: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}-gitops.git
-          source_repository: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}.git
+          destination: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}-gitops.git
+          source_repository: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}.git
           repository_name: ${{parameters.component_id}}
           git_owner: '${{ user.entity.metadata.name }}'
           cluster: .${{ parameters.openshiftCluster }}
@@ -155,7 +155,7 @@ spec:
           image_name: ${{ parameters.component_id }}
           image_tag: ${{ parameters.image_tag }}
           port: 8080
-          repository_host: gitea.${{ parameters.openshiftCluster }}
+          repository_host: gitea-gitea.${{ parameters.openshiftCluster }}
           deployment_name: ${{ parameters.component_id }}
           user: ${{ user.entity.metadata.name }}
           verify_commits: enabled
@@ -165,7 +165,7 @@ spec:
       name: Publishing to Resource Repository
       action: publish:gitea
       input:
-        repoUrl: "gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
         repoVisibility: public
         sourcePath: ./tenant-gitops
 
@@ -176,7 +176,7 @@ spec:
         appName: ${{ user.entity.metadata.name }}-${{ parameters.component_id }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: 'https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
+        repoUrl: 'https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
         path: 'argocd/'
 
   output:
