@@ -114,29 +114,6 @@ spec:
           type: string
           description: Help others understand what this website is for.
           default: My super fight service
-    - title: Application repository Information
-      required:
-        - repo
-      properties:
-        repo:
-          title: Repository Location
-          type: object
-          properties:
-            host:
-              title: Repo Host
-              type: string
-              description: Your SCM host
-              default: gitlab-gitlab
-              enum:
-                - gitlab-gitlab
-            verify_commits:
-              title: Verify Commits
-              type: string
-              description: Verify Git repository commits using Red Hat’s Trusted Artifact Signer (TAS) service
-              default: disabled
-              enum:
-                - enabled
-                - disabled
 
   steps:
 
@@ -161,16 +138,16 @@ spec:
           destination: '${{ user.entity.metadata.name }}/${{ parameters.component_id }}'
           quay_destination: ${{ parameters.image_organization}}/${{ user.entity.metadata.name }}-${{ parameters.component_id }}
           port: 8080
-          verify_commits: ${{ parameters.repo.verify_commits }}
+          verify_commits: enabled
           api_endpoint: ${{ parameters.api_endpoint }}
           system: ${{ user.entity.metadata.name }}-workshop
           user: ${{ user.entity.metadata.name }}
 
     - id: publish
       name: Publish
-      action: publish:gitlab
+      action: publish:gitea
       input:
-        repoUrl: "${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+        repoUrl: "gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
         repoVisibility: public
 
     - id: register
@@ -189,8 +166,8 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          destination: https://${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}-gitops.git
-          source_repository: https://${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}.git
+          destination: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}-gitops.git
+          source_repository: https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{parameters.component_id}}.git
           repository_name: ${{parameters.component_id}}
           git_owner: '${{ user.entity.metadata.name }}'
           cluster: .${{ parameters.openshiftCluster }}
@@ -201,17 +178,17 @@ spec:
           image_name: ${{ parameters.component_id }}
           image_tag: ${{ parameters.image_tag }}
           port: 8080
-          repository_host: ${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}
+          repository_host: gitea.${{ parameters.openshiftCluster }}
           deployment_name: ${{ parameters.component_id }}
           user: ${{ user.entity.metadata.name }}
-          verify_commits: ${{ parameters.repo.verify_commits }}
+          verify_commits: enabled
         targetPath: ./tenant-gitops
 
     - id: publish-gitops
       name: Publishing to Resource Repository
-      action: publish:gitlab
+      action: publish:gitea
       input:
-        repoUrl: "${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: "gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
         sourcePath: ./tenant-gitops
         repoVisibility: public
 
@@ -222,7 +199,7 @@ spec:
         appName: ${{ user.entity.metadata.name }}-${{ parameters.component_id }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: 'https://${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
+        repoUrl: 'https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
         path: 'argocd/'
 
   output:

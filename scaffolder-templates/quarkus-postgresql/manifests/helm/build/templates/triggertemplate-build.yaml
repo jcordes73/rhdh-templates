@@ -43,7 +43,7 @@ spec:
           - name: stackrox-secret
             value: {{ .Values.app.name }}-stackrox-token
           - name: git-host
-            value: gitlab-gitlab{{ .Values.app.cluster }}
+            value: gitea{{ .Values.app.cluster }}
           - name: git-owner
             value: {{ .Values.git.org }}
           - name: component-id

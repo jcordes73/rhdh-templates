@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.app.name }}-update-deployment
 spec:
   params:
-    - default: gitlab-gitlab.apps.cluster-jh82x.sandbox1737.opentlc.com
+    - default: gitea{{ .Values.app.cluster }}
       description: The hostname of the git instance
       name: git-host
       type: string
