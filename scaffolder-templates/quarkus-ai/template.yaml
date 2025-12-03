@@ -125,8 +125,9 @@ spec:
       name: Publish
       action: publish:gitea
       input:
-        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}"
         repoVisibility: public
+        description: "Open Code Quest Quarkus AI"
 
     - id: register
       name: Register
@@ -166,7 +167,7 @@ spec:
       name: Publishing to Resource Repository
       action: publish:gitea
       input:
-        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}-gitops"
         sourcePath: ./tenant-gitops
         repoVisibility: public
 

@@ -30,7 +30,6 @@ spec:
         targetPath: ./source
         values:
           git_host: gitea-gitea.${{ parameters.openshiftCluster }}
-          giteaGroup: ${{ user.entity.metadata.name }}
           repoName: fight-ui
           owner: ${{ user.entity.metadata.name }}
           cluster_id: .${{ parameters.openshiftCluster }}
@@ -46,9 +45,10 @@ spec:
       action: publish:gitea
       input:
         sourcePath: ./source
-        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui
+        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=fight-ui
         defaultBranch: main
         repoVisibility: public
+        description: "Open Code Quest Fight UI"
 
     - id: registerSource
       name: Registering the Source Code Component
@@ -83,7 +83,7 @@ spec:
       name: Publishing to Deployment Resource Repository
       action: publish:gitea
       input:
-        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=fight-ui-gitops
+        repoUrl: gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=fight-ui-gitops
         sourcePath: ./tenant-gitops
         defaultBranch: main
         repoVisibility: public

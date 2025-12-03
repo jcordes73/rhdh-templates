@@ -123,7 +123,7 @@ spec:
       name: Publish
       action: publish:gitea
       input:
-        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}"
         repoVisibility: public
 
     - id: register
@@ -164,7 +164,7 @@ spec:
       name: Publishing to Resource Repository
       action: publish:gitea
       input:
-        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}-gitops"
         repoVisibility: public
         sourcePath: ./tenant-gitops
 
