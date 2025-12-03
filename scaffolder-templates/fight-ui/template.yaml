@@ -87,6 +87,7 @@ spec:
         sourcePath: ./tenant-gitops
         defaultBranch: main
         repoVisibility: public
+        description: "Open Code Quest Fight UI Deployment Resource"
 
     - id: createArgoResources
       name: Create ArgoCD Resources

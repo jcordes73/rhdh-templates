@@ -170,6 +170,7 @@ spec:
         repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}-gitops"
         sourcePath: ./tenant-gitops
         repoVisibility: public
+        description: "Open Code Quest Quarkus AI Deployment Resource"
 
     - id: create-argocd-resources
       name: Create ArgoCD Resources

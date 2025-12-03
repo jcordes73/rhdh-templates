@@ -125,6 +125,7 @@ spec:
       input:
         repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}"
         repoVisibility: public
+        description: "Open Code Quest Quarkus Postgres"
 
     - id: register
       name: Register
@@ -167,6 +168,7 @@ spec:
         repoUrl: "gitea-gitea.${{ parameters.openshiftCluster }}?owner=${{ user.entity.metadata.name }}_org&repo=${{parameters.component_id}}-gitops"
         repoVisibility: public
         sourcePath: ./tenant-gitops
+        description: "Open Code Quest Quarkus Postgres Deployment Resources"
 
     - id: create-argocd-resources
       name: Create ArgoCD Resources
