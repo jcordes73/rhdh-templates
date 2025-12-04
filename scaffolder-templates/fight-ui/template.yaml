@@ -31,7 +31,7 @@ spec:
         values:
           git_host: gitea-gitea.${{ parameters.openshiftCluster }}
           repoName: fight-ui
-          owner: ${{ user.entity.metadata.name }}
+          owner: ${{ user.entity.metadata.name }}_org
           cluster_id: .${{ parameters.openshiftCluster }}
           namespace: ${{ user.entity.metadata.name }}-workshop-dev
           component_id: fight-ui
@@ -67,8 +67,8 @@ spec:
           git_host: gitea-gitea.${{ parameters.openshiftCluster }}
           component_id: fight-ui
           description: "fight-ui sources"
-          destination: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
-          source_repository: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui.git
+          destination: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}_org/fight-ui-gitops.git
+          source_repository: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}_org/fight-ui.git
           repository_name: fight-ui
           git_owner: ${{ user.entity.metadata.name }}
           cluster: .${{ parameters.openshiftCluster }}
@@ -96,7 +96,7 @@ spec:
         appName: ${{ user.entity.metadata.name }}-fight-ui-bootstrap
         argoInstance: main
         namespace: openshift-gitops
-        repoUrl: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/fight-ui-gitops.git
+        repoUrl: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}_org/fight-ui-gitops.git
         path: 'argocd/'
 
   output:
