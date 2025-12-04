@@ -38,7 +38,7 @@ spec:
           system: ${{ user.entity.metadata.name }}-workshop
           user: ${{ user.entity.metadata.name }}
           host: gitea-gitea.${{ parameters.openshiftCluster }}
-          destination: '${{ user.entity.metadata.name }}/fight-ui'
+          destination: '${{ user.entity.metadata.name }}_org/fight-ui'
 
     - id: publishSource
       name: Publishing to Source Code Repository
