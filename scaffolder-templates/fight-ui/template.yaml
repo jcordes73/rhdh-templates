@@ -19,7 +19,8 @@ spec:
           title: OpenShift Clusters
           type: string
           enum:
-            - apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
+            - {{ openshift_apps_domain }}
+          default: {{ openshift_apps_domain }}
 
   steps:
     - id: templateSource
@@ -32,7 +33,7 @@ spec:
           git_host: gitea-gitea.${{ parameters.openshiftCluster }}
           repoName: fight-ui
           owner: ${{ user.entity.metadata.name }}_org
-          cluster_id: .${{ parameters.openshiftCluster }}
+          cluster: .${{ parameters.openshiftCluster }}
           namespace: ${{ user.entity.metadata.name }}-workshop-dev
           component_id: fight-ui
           system: ${{ user.entity.metadata.name }}-workshop

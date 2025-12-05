@@ -26,21 +26,23 @@ spec:
           title: OpenShift Clusters
           type: string
           enum:
-            - apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com 
+            - {{ openshift_apps_domain }}
+          default: {{ openshift_apps_domain }}
       dependencies:
         openshiftCluster:
           oneOf:
             - properties:
                 openshiftCluster:
                   enum:
-                    - apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
+                    - {{ openshift_apps_domain }}
+                  default: {{ openshift_apps_domain }}
                 image_host:
                   title: Image Host
                   type: string
                   description: Host for storing image
                   enum: 
-                    - quay.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
-                  default: quay.apps.cluster-f5bzw.f5bzw.sandbox3426.opentlc.com
+                    - quay.{{ openshift_apps_domain }}
+                  default: quay.{{ openshift_apps_domain }}
                 image_organization:
                   title: Organization
                   type: string
@@ -110,7 +112,7 @@ spec:
           artifact_id: ${{ parameters.artifact_id }}
           java_package_name: ${{ parameters.java_package_name }}
           java_package_name_dir: ${{ parameters.java_package_name | replace(".","/") }}
-          owner: ${{ user.entity.metadata.name }}
+          owner: ${{ user.entity.metadata.name }}_org
           cluster: .${{ parameters.openshiftCluster }}
           host: ${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}
           destination: '${{ user.entity.metadata.name }}/${{ parameters.component_id }}'
