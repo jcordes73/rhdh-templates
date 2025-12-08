@@ -95,7 +95,7 @@ spec:
       action: argocd:create-resources
       input:
         appName: ${{ user.entity.metadata.name }}-fight-ui-bootstrap
-        argoInstance: main
+        argoInstance: openshift-gitops
         namespace: openshift-gitops
         repoUrl: https://gitea-gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}_org/fight-ui-gitops.git
         path: 'argocd/'

@@ -177,9 +177,9 @@ spec:
       action: argocd:create-resources
       input:
         appName: ${{ user.entity.metadata.name }}-${{ parameters.component_id }}-bootstrap
-        argoInstance: main
+        argoInstance: openshift-gitops
         namespace: openshift-gitops
-        repoUrl: 'https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}/${{ parameters.component_id }}-gitops.git'
+        repoUrl: 'https://gitea.${{ parameters.openshiftCluster }}/${{ user.entity.metadata.name }}_org/${{ parameters.component_id }}-gitops.git'
         path: 'argocd/'
 
   output:
