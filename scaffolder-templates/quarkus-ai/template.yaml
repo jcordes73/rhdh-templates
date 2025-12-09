@@ -47,7 +47,7 @@ spec:
                   title: Organization
                   type: string
                   description: Name of the Quay Organization
-                  default: quayadmin
+                  default: ${{ user.entity.metadata.name }}_org
                 image_tag:
                   title: Image Tag
                   default: latest
