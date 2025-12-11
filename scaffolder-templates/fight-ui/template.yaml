@@ -94,7 +94,6 @@ spec:
       name: Create ArgoCD Resources
       action: argocd:create-resources
       input:
-        projectName: ${{ user.entity.metadata.name }}-workshop
         appName: ${{ user.entity.metadata.name }}-fight-ui-bootstrap
         argoInstance: openshift-gitops
         namespace: ${{ user.entity.metadata.name }}-workshop
