@@ -7,10 +7,10 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: janus
+  project: ${{values.user}}-workshop
   source:
     repoURL: ${{ values.destination }}
-    targetRevision: HEAD
+    targetRevision: main
     path: ./helm/app
     helm:
       parameters:
