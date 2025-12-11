@@ -10,7 +10,7 @@ spec:
   project: ${{values.user}}-workshop
   source:
     repoURL: ${{ values.destination }}
-    targetRevision: main
+    targetRevision: HEAD
     path: ./helm/app
     helm:
       parameters:
