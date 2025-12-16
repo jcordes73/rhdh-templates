@@ -40,13 +40,13 @@ spec:
   lifecycle: production
   owner: ${{ values.owner }}
   providesApis:
-    - ${{values.owner}}/${{values.owner}}-${{values.component_id}}
+    - ${{values.owner}}/${{values.user}}-${{values.component_id}}
   system: ${{values.system}}
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ${{values.owner}}-${{values.component_id}}
+  name: ${{values.user}}-${{values.component_id}}
   {%- if values.description %}
   description: ${{values.description | dump}}
   {%- endif %}
