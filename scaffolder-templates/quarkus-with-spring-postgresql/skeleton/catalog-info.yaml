@@ -40,7 +40,7 @@ spec:
   lifecycle: production
   owner: ${{ values.owner }}
   providesApis:
-    - ${{ values.owner }}-${{ values.component_id }}
+    - ${{ values.user }}_org/${{ values.owner }}-${{ values.component_id }}
   system: ${{values.system}}
 ---
 apiVersion: backstage.io/v1alpha1
@@ -53,6 +53,6 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: ${{values.owner | dump}}
+  owner: ${{ values.user }}_org/${{values.owner | dump}}
   definition:
     $text: ./openapi.yaml
