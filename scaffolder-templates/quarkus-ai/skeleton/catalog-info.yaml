@@ -53,6 +53,6 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: ${{values.user}}_org/${{values.owner}}
+  owner: ${{values.user}}_org
   definition:
     $text: ./openapi.yaml
