@@ -8,12 +8,12 @@ metadata:
     - nodejs
     - superheroes
 spec:
-  owner: ${{values.owner | dump}}
+  owner: ${{values.owner}}
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.owner }}-${{ values.component_id }}
+  name: ${{values.owner}}-${{values.component_id}}
   {%- if values.description %}
   description: ${{values.description | dump}}
   {%- endif %}
@@ -33,9 +33,9 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: ${{ values.owner }}
+  owner: ${{values.owner}}
   consumesApis:
-    - ${{values.user}}_org/${{ values.owner }}-hero
-    - ${{values.user}}_org/${{ values.owner }}-villain
-    - ${{values.user}}_org/${{ values.owner }}-fight
+    - ${{values.user}}_org/${{values.user}}-hero
+    - ${{values.user}}_org/${{values.user}}-villain
+    - ${{values.user}}_org/${{values.user}}-fight
   system: ${{values.system}}

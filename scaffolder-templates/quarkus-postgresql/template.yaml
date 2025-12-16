@@ -110,7 +110,7 @@ spec:
           artifact_id: ${{ parameters.artifact_id }}
           java_package_name: ${{ parameters.java_package_name }}
           java_package_name_dir: ${{ parameters.java_package_name | replace(".","/") }}
-          owner: ${{ user.entity.metadata.name }}
+          owner: ${{ user.entity.metadata.name }}_org
           cluster: .${{ parameters.openshiftCluster }}
           host: gitea-gitea.${{ parameters.openshiftCluster }}
           destination: '${{ user.entity.metadata.name }}_org/${{ parameters.component_id }}/src/branch/main/'
