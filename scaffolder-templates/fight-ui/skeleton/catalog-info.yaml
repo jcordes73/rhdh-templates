@@ -35,7 +35,7 @@ spec:
   lifecycle: production
   owner: ${{values.owner}}
   consumesApis:
-    - ${{values.user}}_org/${{values.user}}-hero
-    - ${{values.user}}_org/${{values.user}}-villain
-    - ${{values.user}}_org/${{values.user}}-fight
+    - ${{values.owner}}/${{values.user}}-hero
+    - ${{values.owner}}/${{values.user}}-villain
+    - ${{values.owner}}/${{values.user}}-fight
   system: ${{values.system}}
