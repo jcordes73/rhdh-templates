@@ -19,7 +19,7 @@ metadata:
     argocd/app-selector: rht-gitops.com/openshift-gitops=${{values.user}}-${{values.component_id}}-bootstrap
     backstage.io/kubernetes-id: ${{values.user}}-${{values.component_id}}
     backstage.io/source-location: url:https://${{values.host}}/${{values.destination}}
-    backstage.io/techdocs-ref: url:https://${{values.host}}/${{values.destination}}
+    backstage.io/techdocs-ref: dir:.
     gitea.com/project-slug: ${{values.destination}}
     sonarqube.org/project-key: ${{values.user}}-${{values.component_id}}
   tags:
