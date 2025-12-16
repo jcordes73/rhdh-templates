@@ -2,6 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: ${{values.system}}
+  annotations:
+    backstage.io/techdocs-ref: dir:.
   tags:
     - nodejs
     - superheroes
