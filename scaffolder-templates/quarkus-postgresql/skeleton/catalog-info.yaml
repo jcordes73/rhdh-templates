@@ -7,12 +7,12 @@ metadata:
     - quarkus
     - superheroes
 spec:
-  owner: ${{values.owner | dump}}
+  owner: ${{values.user}}
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.owner }}-${{ values.component_id }}
+  name: ${{values.owner}}-${{values.component_id}}
   {%- if values.description %}
   description: ${{values.description | dump}}
   {%- endif %}
@@ -38,9 +38,9 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: ${{ values.owner }}
+  owner: ${{values.owner}}
   providesApis:
-    - ${{ values.users }}_org/${{ values.owner }}-${{ values.component_id }}
+    - ${{values.user}}_org/${{values.owner}}-${{values.component_id}}
   system: ${{values.system}}
 ---
 apiVersion: backstage.io/v1alpha1
@@ -53,6 +53,6 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: ${{ values.users }}_org/${{values.owner | dump}}
+  owner: ${{values.user}}_org/${{values.owner}}
   definition:
     $text: ./openapi.yaml
