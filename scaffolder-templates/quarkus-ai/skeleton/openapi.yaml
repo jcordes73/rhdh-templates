@@ -1,13 +1,16 @@
+${{values.user}}-${{values.component_id}}
 ---
 openapi: 3.0.3
 info:
   title: quarkus-app API
   version: 1.0-SNAPSHOT
 servers:
-- url: http://localhost:8080
-  description: Auto generated value
-- url: http://0.0.0.0:8080
-  description: Auto generated value
+- url: https://${{values.user}}-${{values.component_id}}-dev-${{values.user}}-workshop-dev.{{values.cluster}}
+  description: ${{values.user}}-${{values.component_id}} Dev
+- url: https://${{values.user}}-${{values.component_id}}-preprod-${{values.user}}-workshop-preprod.{{values.cluster}}
+  description: ${{values.user}}-${{values.component_id}} Preprod
+- url: https://${{values.user}}-${{values.component_id}}-prod-${{values.user}}-workshop-prod.{{values.cluster}}
+  description: ${{values.user}}-${{values.component_id}} Prod
 paths:
   ${{values.api_endpoint}}:
     get:
