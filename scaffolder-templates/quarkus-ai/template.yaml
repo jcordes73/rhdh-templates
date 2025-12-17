@@ -117,7 +117,7 @@ spec:
           java_package_name_dir: ${{parameters.java_package_name | replace(".","/")}}
           owner: ${{user.entity.metadata.name}}_org
           cluster: .${{parameters.openshiftCluster}}
-          host: ${{parameters.repo.host}}.${{parameters.openshiftCluster}}
+          host: gitea-gitea.${{parameters.openshiftCluster}}
           destination: '${{user.entity.metadata.name}}_org/${{parameters.component_id}}/src/branch/main/'
           quay_destination: ${{parameters.image_organization}}/${{user.entity.metadata.name}}-${{parameters.component_id}}
           port: 8080
