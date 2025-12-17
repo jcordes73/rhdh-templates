@@ -47,12 +47,10 @@ spec:
                   title: Organization
                   type: string
                   description: Name of the Quay Organization
-                  ui:field: EntityPicker
+                  ui:field: MyGroupsPicker
                   ui:options:
-                    showOnlyUserOwnGroups: true
-                    allowArbitraryValues: false
-                    allowedKinds:
-                      - Group
+                    catalogFilter:
+                      kind: [Group]
                 image_tag:
                   title: Image Tag
                   default: latest
