@@ -47,7 +47,12 @@ spec:
                   title: Organization
                   type: string
                   description: Name of the Quay Organization
-                  default: ${{ user.entity.metadata.name }}_org
+                  ui:field: EntityPicker
+                  ui:options:
+                    showOnlyUserOwnGroups: true
+                    allowArbitraryValues: false
+                    allowedKinds:
+                      - Group
                 image_tag:
                   title: Image Tag
                   default: latest
