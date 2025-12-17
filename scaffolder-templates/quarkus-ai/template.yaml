@@ -119,7 +119,7 @@ spec:
           cluster: .${{parameters.openshiftCluster}}
           host: ${{parameters.repo.host}}.${{parameters.openshiftCluster}}
           destination: '${{user.entity.metadata.name}}_org/${{parameters.component_id}}/src/branch/main/'
-          quay_destination: ${{parameters.image_host}}/${{parameters.image_organization}}/${{user.entity.metadata.name}}-${{parameters.component_id}}
+          quay_destination: ${{parameters.image_organization}}/${{user.entity.metadata.name}}-${{parameters.component_id}}
           port: 8080
           verify_commits: enabled
           api_endpoint: ${{parameters.api_endpoint}}
