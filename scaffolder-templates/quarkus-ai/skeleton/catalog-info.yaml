@@ -40,7 +40,7 @@ spec:
   lifecycle: production
   owner: ${{values.owner}}
   providesApis:
-    - ${{values.owner}}/${{values.user}}-${{values.component_id}}
+    - ${{values.user}}-${{values.component_id}}
   system: ${{values.system}}
 ---
 apiVersion: backstage.io/v1alpha1
