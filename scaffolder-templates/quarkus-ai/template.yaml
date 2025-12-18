@@ -150,8 +150,8 @@ spec:
         values:
           component_id: ${{parameters.component_id}}
           description: ${{parameters.description}}
-          destination: https://gitea-gitea.${{parameters.openshiftCluster}}/${{user.entity.metadata.name}}/${{parameters.component_id}}-gitops.git
-          source_repository: https://gitea-gitea.${{parameters.openshiftCluster}}/${{user.entity.metadata.name}}/${{parameters.component_id}}.git
+          destination: https://gitea-gitea.${{parameters.openshiftCluster}}/${{user.entity.metadata.name}}_org/${{parameters.component_id}}-gitops.git
+          source_repository: https://gitea-gitea.${{parameters.openshiftCluster}}/${{user.entity.metadata.name}}_org/${{parameters.component_id}}.git
           repository_name: ${{parameters.component_id}}
           git_owner: '${{user.entity.metadata.name}}'
           cluster: .${{parameters.openshiftCluster}}
